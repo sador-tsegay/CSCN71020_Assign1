@@ -3,25 +3,32 @@
 void printWelcomeMenu();
 void printOptions();
 void add();
+void subtract();
 
-
-void main() {
-
+int main(void) {
 	printWelcomeMenu();
-
 	printOptions();
 
 	int inputNum;
-
 	printf("Enter operation number: ");
-	scanf("%1o", &inputNum);
-
-	switch (inputNum)
-	{
-	case 1:
-		add();
+	if (scanf("%d", &inputNum) != 1) {
+		printf("Invalid input.\n");
+		return 1;
 	}
 
+	switch (inputNum) {
+		case 1:
+			add();
+			break;
+		case 2:
+			subtract();
+			break;
+		default:
+			printf("Invalid selection.\n");
+			break;
+	}
+
+	return 0;
 }
 
 void printWelcomeMenu() {
@@ -38,15 +45,20 @@ void printOptions() {
 
 void add() {
 	double num1, num2, result;
-	printf("Enter the first value:");
+	printf("Enter the first value: ");
 	scanf("%lf", &num1);
-	printf("Enter the second value:");
+	printf("Enter the second value: ");
 	scanf("%lf", &num2);
 	result = num1 + num2;
 	printf("%lf + %lf = %lf\n", num1, num2, result);
 }
 
-void Subtract()
-{
-	printf("Wrong function\n");
+void subtract() {
+	double num1, num2, result;
+	printf("Enter the first value: ");
+	scanf("%lf", &num1);
+	printf("Enter the second value: ");
+	scanf("%lf", &num2);
+	result = num1 - num2;
+	printf("%lf - %lf = %lf\n", num1, num2, result);
 }
